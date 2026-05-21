@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  dataStorage
-//
-//  Created by Вадим on 21.05.2026.
-//
-
 import SwiftUI
 
 struct ContentView: View {
