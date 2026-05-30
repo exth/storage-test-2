@@ -1,10 +1,5 @@
 import Foundation
 
-enum KeychainKeys {
-    static let accessToken  = "accessToken"
-    static let refreshToken = "refreshToken"
-}
-
 final class TokenService {
     static let shared = TokenService()
     private let keychain = KeychainService.shared

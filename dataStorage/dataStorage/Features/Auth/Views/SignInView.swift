@@ -25,7 +25,9 @@ struct SignInView: View {
             }
 
             Button {
-                Task { await authVM.signIn(email: email, password: password) }
+                Task {
+                    await authVM.signIn(email: email, password: password)
+                }
             } label: {
                 if authVM.isLoading {
                     ProgressView()

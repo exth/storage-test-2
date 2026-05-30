@@ -1,10 +1,6 @@
 import Foundation
 import Security
 
-enum KeychainError: Error {
-    case unknown(OSStatus)
-}
-
 final class KeychainService {
     static let shared = KeychainService()
     private init() {}
@@ -13,13 +9,15 @@ final class KeychainService {
 
     // MARK: - Save
     func save(_ value: String, forKey key: String) throws {
-        guard let data = value.data(using: .utf8) else { return }
+        guard let data = value.data(using: .utf8) else {
+            return
+        }
 
         let query: [CFString: Any] = [
-            kSecClass:       kSecClassGenericPassword,
+            kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
             kSecAttrAccount: key,
-            kSecValueData:   data
+            kSecValueData: data
         ]
 
         let status = SecItemAdd(query as CFDictionary, nil)

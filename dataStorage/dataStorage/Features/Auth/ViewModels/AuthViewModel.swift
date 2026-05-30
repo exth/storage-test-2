@@ -22,6 +22,7 @@ final class AuthViewModel {
         do {
             let accessToken  = "mock_access_token"
             let refreshToken = "mock_refresh_token"
+            try tokenService.saveTokens(access: accessToken, refresh: refreshToken)
 
             
             // MARK: - в реальном проекте: (№1) -
@@ -33,7 +34,6 @@ final class AuthViewModel {
             // try tokenService.saveTokens(access: tokens.accessToken, refresh: tokens.refreshToken)
             
             
-            try tokenService.saveTokens(access: accessToken, refresh: refreshToken)
             udService.isLoggedIn = true
             isLoggedIn = true
 
